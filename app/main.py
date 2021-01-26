@@ -12,8 +12,6 @@ def reverse():
     in charge of reversing the elements in the JSON
     :return: the dict returned by the service method as a JSON object
     """
-    # TODO https://dev.to/techparida/how-to-deploy-a-flask-app-on-heroku-heb
-
     req_data = request.get_json()
     res = reverse_json(req_data)
     return Response(json.dumps(res), mimetype='application/json')
