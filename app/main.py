@@ -1,5 +1,5 @@
 from flask import Flask, request, Response
-from service import reverse_json
+from app.service import reverse_json
 import json
 
 app = Flask(__name__)
@@ -12,6 +12,7 @@ def reverse():
     in charge of reversing the elements in the JSON
     :return: the dict returned by the service method as a JSON object
     """
+    # TODO https://dev.to/techparida/how-to-deploy-a-flask-app-on-heroku-heb
 
     req_data = request.get_json()
     res = reverse_json(req_data)
@@ -44,7 +45,3 @@ def error_response(message, error_code):
         "error_code": error_code
     }
     return Response(json.dumps(res_body), mimetype='application/json'), error_code
-
-
-if __name__ == '__main__':
-    app.run()
